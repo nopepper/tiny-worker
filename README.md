@@ -1,6 +1,6 @@
 # Tiny Worker
 
-A tiny utility for easy parallelism in Python that provides a simple, future-based API for parallel task processing using either threads or processes.
+A tiny utility for easy parallelism in Python >= 3.10 that provides a simple, future-based API for parallel task processing using either threads or processes.
 
 Unlike other parallelism / async libraries, `tiny_worker` focuses on a simple, local-only task queue with resource management.
 
@@ -63,7 +63,7 @@ Oftentimes we want to initialize some resources and reuse them across tasks.
 ```python
 from tiny_worker import TinyTroupe, TinyWorker
 
-class ConnectedWorker(TinyWorker[float, float]):
+class ConnectedWorker(TinyWorker[float, list[str]]):
     def __init__(self, foo: str) -> None:
         self.connection = connect(foo)  # Initialize some resources
 
